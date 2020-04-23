@@ -25,23 +25,23 @@ class Owner
     @@all.clear
   end
   
-  def say_species
-    "I am a #{@species}."
-  end
+  # def say_species
+  #   "I am a #{@species}."
+  # end
   
-  def cats
-    Cat.all.each do |cat|
-      cat.owner == self
-      @cats << cat
-    end
-  end
+  # def cats
+  #   Cat.all.each do |cat|
+  #     cat.owner == self
+  #     @cats << cat
+  #   end
+  # end
   
-  def dogs
-    Dog.all.each do |dog|
-      dog.owner == self
-      @dogs << dog
-    end
-  end
+  # def dogs
+  #   Dog.all.each do |dog|
+  #     dog.owner == self
+  #     @dogs << dog
+  #   end
+  # end
   
   def buy_cat(name)
     Cat.new(name, self)
