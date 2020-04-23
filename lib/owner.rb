@@ -52,27 +52,28 @@ class Owner
   end
   
   def walk_dogs
-    @pets[:dogs].each{|dog| dog.mood = "happy"}
+    @dogs.each{|dog| dog.mood = "happy"}
   end
   
   def feed_cats
-    @pets[:cats].each{|cat| cat.mood = "happy"}
+    @cats.each{|cat| cat.mood = "happy"}
   end
   
   def sell_pets
-    @pets.each do |animal, list|
-      list.each do |pet|
-        pet.mood = 'nervous'
-      end
-      list.clear
+    @cats.each do |cat|
+      cat.mood = "nervous"
+      cat.owner = nil
+    end
+    @dogs.each do |dog|
+      dog.mood = "nervous"
+      dog.owner = nil
     end
   end
   
   def list_pets
-    num_dogs = @pets[:dogs].size
-    num_cats = @pets[:cats].size
-    num_fish = @pets[:fishes].size
-    "I have #{num_fish} fish, #{num_dogs} dog(s), and #{num_cats} cat(s)."
+    num_cats = @cats.length
+    num_dogs = @dogs.length
+    "I have #{num_dogs} dog(s), and #{num_cats} cat(s)."
   end  
 
 end
