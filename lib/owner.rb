@@ -60,16 +60,17 @@ class Owner
   end
   
   def sell_pets
+    
     @cats.each do |cat|
-      @cats.delete(cat)
       cat.mood = "nervous"
       cat.owner = nil
     end
+    
     @dogs.each do |dog|
-      @dog.delete(dog)
       dog.mood = "nervous"
       dog.owner = nil
     end
+    
   end
   
   def list_pets
