@@ -1,6 +1,6 @@
 class Owner
   
-  attr_accessor :pets, :cat, :dog
+  attr_accessor :cat, :dog
   attr_reader :species, :name
   
   @@all = []
@@ -8,7 +8,8 @@ class Owner
   def initialize(name)
     @name = name
     @species = "human"
-    @pets = {:cats => [], :dogs => []}
+    @cats = []
+    @dogs = []
     @@all << self
   end
   
@@ -31,27 +32,23 @@ class Owner
   def cats
     Cat.all.each do |cat|
       cat.owner == self
-      @pets[:cats] << cat
+      @cats << cat
     end
   end
   
   def dogs
     Dog.all.each do |dog|
       dog.owner == self
-      @pets[:dogs] << dog
+      @dogs << dog
     end
   end
   
-  def buy_cat(cat_name)
-    cat = Cat.new(cat_name)
-    cat.owner = self
-    @pets[:cats] << cat
+  def buy_cat(name)
+    new_cat = Cat.new(name, self)
   end
   
-  def buy_dog(dog_name)
-    dog = Dog.new(dog_name)
-    dog.owner = self
-    @pets[:dogs] << dog
+  def buy_dog(name)
+    new_dog = Dog.new(name, self)
   end
   
   def walk_dogs
